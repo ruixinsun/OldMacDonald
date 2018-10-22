@@ -1,15 +1,27 @@
-public void setup() {   
-    Farm f = new Farm();
-    f.animalSounds();
-    Cow c = new Cow("cow", "moo");   
-    System.out.println(c.getType() + " goes " + c.getSound());    
-    Chick b = new Chick("chick", "cluck");
-    System.out.println(b.getType()+" goes "+b.getSound());
-    Pig a = new Pig("pig","oink");
-    System.out.println(a.getType()+" goes "+a.getSound());
-}
-interface Animal 
-{    
-     public String getSound();
-     public String getType();
+class Chick implements Animal 
+{     
+     private String myType;     
+     private String mySound;
+     private String mySound2;  
+     private int n;
+     public Chick(String type, String sound, String sound2)     
+     {         
+         myType = type;         
+         mySound = sound;
+         mySound2 = sound2;
+     }     
+     public Chick()     
+     {         
+         myType = "unknown";         
+         mySound = "unknown";     
+     }      
+     public String getSound()
+     {
+       n = (int)(Math.random()*2);
+       if (n==0)
+         return mySound;
+       else 
+         return mySound2;
+     }     
+     public String getType(){return myType;} 
 }
